@@ -1,0 +1,93 @@
+---
+title: "thesis"
+author: "Chris Hua"
+date: "November 15, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+```{r}
+library(Lahman)
+library(magrittr)
+library(rvest)
+library(dplyr)
+```
+
+```{r util}
+get_fa_year <- function(year) {
+    url <- paste0("http://www.baseball-reference.com/leagues/MLB/", year, "-free-agents.shtml")
+    df <- url %>% read_html()
+}
+
+# looks up team ID given team name and year of data
+get_team_id <- function(team_name, year) {
+    id <- Lahman::Teams %>% 
+    filter(name == team_name) %>%
+    filter(yearID == year) %$% 
+    teamID
+    paste(id)
+}
+
+# gets first element from double extract
+strsplit2 <- function(x, split, ...) {
+    strsplit(x, split, ...) %>% extract2(1)
+}
+```
+
+```{r}
+# workhouse data manipulation
+get_fa_batting <- function(df, year) {
+    orig <- df
+    
+    # get table
+    df %<>% 
+        html_table() %>%
+        extract2(1)
+    # strip out pitching stats
+    df <- df[, c(2:20)]
+    # rename spaced variables
+    df %<>% rename(to_team = `To Team`, from_team = `From Team`) 
+    
+    # get player ID from url
+    player_ids <- orig %>%
+        html_nodes("tbody a") %>%
+        html_attr("href") %>%
+        extract(grep("players", .)) %>% 
+        substr(., start = 12, stop = 99) %>%
+        data_frame(url = .) %>%
+        rowwise() %>%
+        mutate(url = strsplit2(url, ".shtml")) %>%
+        unlist
+    df$playerID <- player_ids[1:nrow(df)]
+    
+    # get team id
+    df %<>%
+        rowwise %>%
+        mutate(to_team = get_team_id(to_team, year)) %>%
+        ungroup
+    df
+}
+
+# given df with players and years, get the salary info for that year
+get_salary_info <- function(df, year) {
+    df %>%
+        mutate(yearID = year) %>%
+        left_join(Lahman::Salaries, by = c("playerID", "yearID")) %>%
+        filter(salary > 0)
+}
+```
+
+```{r transform_html}
+fa_2000 <- get_fa_year(2000) %>% get_fa_batting(2000)
+fa_2001 <- get_fa_year(2001) %>% get_fa_batting(2001)
+```
+
+```{r}
+fa_2000_salaries <- fa_2000 %>% get_salary_info(2001)
+```
+
