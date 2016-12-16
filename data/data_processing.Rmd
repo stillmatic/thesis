@@ -34,6 +34,7 @@ get_team_id <- function(team_name, year) {
 }
 
 # gets first element from double extract
+# should i use `curry` for this...? hm...
 strsplit2 <- function(x, split, ...) {
     strsplit(x, split, ...) %>% extract2(1)
 }
@@ -85,9 +86,55 @@ get_salary_info <- function(df, year) {
 ```{r transform_html}
 fa_2000 <- get_fa_year(2000) %>% get_fa_batting(2000)
 fa_2001 <- get_fa_year(2001) %>% get_fa_batting(2001)
+fa_2014 <- get_fa_year(2014) %>% get_fa_batting(2014)
+
 ```
 
 ```{r}
 fa_2000_salaries <- fa_2000 %>% get_salary_info(2001)
+fa_2014_salaries <- fa_2014 %>% get_salary_info(2015)
+fa_2014_salaries
+```
+
+## Get all transactions
+
+We look at 'signed' and 'purchased' designations - these include foreign free agent signings.
+
+```{r}
+# source("https://raw.githubusercontent.com/crowding/vadr/master/R/bind.R")
+
+parse_transaction <- function(node) {
+    actors <- node %>%
+        html_nodes("a") %>% 
+        html_attr("href")
+    t_team <- actors[1] %>% strsplit("/") %>% extract2(1) %>% extract(3)
+    player_id <- actors[2] %>% strsplit("/") %>% extract2(1) %>% extract(4) %>% strsplit(".shtml") %>% extract2(1)
+    c(t_team, player_id)
+}
+
+
+get_transactions_year <- function(year) {
+    url <- paste0("http://www.baseball-reference.com/leagues/MLB/", 
+                  year, "-transactions.shtml")
+    temp <- url %>% read_html()
+    
+    # get signed and purchased
+    temp2 <- temp %>% 
+        html_nodes("#all_stats p") %>%
+        extract(c(grep("signed", .), grep("purchased", .)))
+    temp3 <- temp2 %>% 
+        plyr::ldply(parse_transaction)
+    names(temp3) <- c("to_team", "playerID")
+    temp3
+}
+
+zz <- get_transactions_year(2001)
+```
+
+```{r}
+Lahman::Salaries %>% 
+  right_join(zz, by = "playerID") %>%
+  filter(yearID >= 1998, yearID < 2004) %>%
+  arrange(playerID)
 ```
 
