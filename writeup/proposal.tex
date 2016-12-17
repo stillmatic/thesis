@@ -1,144 +1,225 @@
-ss[]{article}
+\documentclass[11pt,]{article}
 \usepackage[left=1in,top=1in,right=1in,bottom=1in]{geometry}
-\newcommand*{\authorfont}{\fontfamily{phv}\selectfont}
+\newcommand*{\authorfont}{\fontfamily{pbk}\selectfont}
 \usepackage[]{mathpazo}
 
+\usepackage{framed}
+\usepackage{parskip}
 
-  \usepackage[T1]{fontenc}
-    \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 
+\usepackage{abstract}
+\renewcommand{\abstractname}{}    % clear the title
+\renewcommand{\absnamepos}{empty} % originally center
 
+\renewenvironment{abstract}
+ {{%
+    \setlength{\leftmargin}{0mm}
+    \setlength{\rightmargin}{\leftmargin}%
+  }%
+  \relax}
+ {\endlist}
 
-    \usepackage{abstract}
-    \renewcommand{\abstractname}{}    % clear the title
-    \renewcommand{\absnamepos}{empty} % originally center
+\makeatletter
+\def\@maketitle{%
+  \newpage
+%  \null
+%  \vskip 2em%
+%  \begin{center}%
+  \let \footnote \thanks
+    {\fontsize{18}{20}\selectfont\raggedright  \setlength{\parindent}{0pt} \@title \par}%
+}
+%\fi
+\makeatother
 
-    \renewenvironment{abstract}
-     {{%
-         \setlength{\leftmargin}{0mm}
-             \setlength{\rightmargin}{\leftmargin}%
-               }%
-                 \relax}
-                  {\endlist}
-
-                  \makeatletter
-                  \def\@maketitle{%
-                    \newpage
-                    %  \null
-                    %  \vskip 2em%
-                    %  \begin{center}%
-                      \let \footnote \thanks
-                          {\fontsize{18}{20}\selectfont\raggedright  \setlength{\parindent}{0pt} \@title \par}%
-                          }
-                          %\fi
-                          \makeatother
-
-
-                          
-
-                          \setcounter{secnumdepth}{0}
-
-                                                                                                                                  
-                          
-                                                    \title{Performance Persistence in Major League Baseball: Thesis Proposal - Wharton Honors Thesis  }
-                          
+\setlength{\parindent}{0pt}
 
 
-                          \author{\Large Chris Hua\vspace{0.05in} \newline\normalsize\emph{Wharton School, University of Pennsylvania}  }
+
+\setcounter{secnumdepth}{0}
+
+\usepackage{longtable,booktabs}
 
 
-                          \date{}
-
-                          \usepackage{titlesec}
-
-                          \titleformat*{\section}{\normalsize\bfseries}
-                          \titleformat*{\subsection}{\normalsize\itshape}
-                          \titleformat*{\subsubsection}{\normalsize\itshape}
-                          \titleformat*{\paragraph}{\normalsize\itshape}
-                          \titleformat*{\subparagraph}{\normalsize\itshape}
+\title{Performance Persistence in Major League Baseball: Wharton Honors Thesis \thanks{Contact:
+\href{mailto:chua@wharton.upenn.edu}{\nolinkurl{chua@wharton.upenn.edu}}}  }
 
 
-                          
-                                                    
 
-                          \newtheorem{hypothesis}{Hypothesis}
-                          \usepackage{setspace}
-
-                          \makeatletter
-                          \@ifpackageloaded{hyperref}{}{%
-                          \ifxetex
-                            \usepackage[setpagesize=false, % page size defined by xetex
-                                          unicode=false, % unicode breaks when used with xetex
-                                                        xetex]{hyperref}
-                                                        \else
-                                                          \usepackage[unicode=true]{hyperref}
-                                                          \fi
-                                                          }
-                                                          \@ifpackageloaded{color}{
-                                                              \PassOptionsToPackage{usenames,dvipsnames}{color}
-                                                              }{%
-                                                                  \usepackage[usenames,dvipsnames]{color}
-                                                                  }
-                                                                  \makeatother
-                                                                  \hypersetup{breaklinks=true,
-                                                                              bookmarks=true,
-                                                                                          pdfauthor={Chris Hua (Wharton School, University of Pennsylvania)},
-                                                                                                       pdfkeywords = {},  
-                                                                                                                   pdftitle={Performance Persistence in Major League Baseball: Thesis Proposal - Wharton Honors Thesis},
-                                                                                                                               colorlinks=true,
-                                                                                                                                           citecolor=blue,
-                                                                                                                                                       urlcolor=blue,
-                                                                                                                                                                   linkcolor=magenta,
-                                                                                                                                                                               pdfborder={0 0 0}}
-                                                                                                                                                                               \urlstyle{same}  % don't use monospace font for urls
-
-                                                                                                                                                                               
-
-                                                                                                                                                                               \begin{document}
-                                                                                                                                                                                   
-                                                                                                                                                                                   % \pagenumbering{arabic}% resets `page` counter to 1 
-                                                                                                                                                                                   %
-                                                                                                                                                                                                                                                                                                                                                                      % \maketitle
-
-                                                                                                                                                                                   {% \usefont{T1}{pnc}{m}{n}
-                                                                                                                                                                                   \setlength{\parindent}{0pt}
-                                                                                                                                                                                   \thispagestyle{plain}
-                                                                                                                                                                                   {\fontsize{18}{20}\selectfont\raggedright 
-                                                                                                                                                                                   \maketitle  % title \par  
-
-                                                                                                                                                                                   }
-
-                                                                                                                                                                                   {
-                                                                                                                                                                                      \vskip 13.5pt\relax \normalsize\fontsize{11}{12} 
-                                                                                                                                                                                      \textbf{\authorfont Chris Hua} \hskip 15pt \emph{\small Wharton School, University of Pennsylvania}   
-
-                                                                                                                                                                                      }
-
-                                                                                                                                                                                      }
+\author{\Large Chris Hua\vspace{0.05in} \newline\normalsize\emph{Wharton School, University of Pennsylvania}   \and \Large Linda Zhao\vspace{0.05in} \newline\normalsize\emph{Wharton School, University of Pennsylvania}  }
 
 
-                                                                                                                                                                                      
-                                                                                                                                                                                      
-                                                                                                                                                                                      
-                                                                                                                                                                                                      \vskip 6.5pt
+\date{}
 
-                                                                                                                                                                                                      \noindent  \subsection{Introduction}\label{introduction}
+\usepackage{titlesec}
+
+\titleformat*{\section}{\Large\bfseries}
+\titleformat*{\subsection}{\Large\itshape}
+\titleformat*{\subsubsection}{\normalsize\itshape}
+\titleformat*{\paragraph}{\normalsize\itshape}
+\titleformat*{\subparagraph}{\normalsize\itshape}
+
+
+
+
+\newtheorem{hypothesis}{Hypothesis}
+\usepackage{setspace}
+
+\makeatletter
+\@ifpackageloaded{hyperref}{}{%
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+}
+\@ifpackageloaded{color}{
+    \PassOptionsToPackage{usenames,dvipsnames}{color}
+}{%
+    \usepackage[usenames,dvipsnames]{color}
+}
+\makeatother
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Chris Hua (Wharton School, University of Pennsylvania) and Linda Zhao (Wharton School, University of Pennsylvania)},
+             pdfkeywords = {performance persistence, baseball, sports analytics},  
+            pdftitle={Performance Persistence in Major League Baseball: Wharton Honors Thesis},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+
+\usepackage{amsmath}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
+  
+% \pagenumbering{arabic}% resets `page` counter to 1 
+%
+% \maketitle
+
+{% \usefont{T1}{pnc}{m}{n}
+\setlength{\parindent}{0pt}
+\thispagestyle{plain}
+{\fontsize{18}{20}\selectfont\raggedright 
+\maketitle  % title \par  
+
+}
+
+{
+   \vskip 13.5pt\relax \normalsize\fontsize{11}{12} 
+ \textbf{\authorfont Chris Hua} \hfill \emph{\small Wharton School, University of Pennsylvania}   \par  \textbf{\authorfont Linda Zhao} \hfill \emph{\small Wharton School, University of Pennsylvania}   
+
+}
+
+}
+
+
+
+
+
+
+
+\begin{abstract}
+
+    \hbox{\vrule height .2pt width 39.14pc}
+
+    \vskip 8.5pt % \small 
+
+\noindent Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rhoncus
+est metus, porttitor scelerisque nisi tincidunt at. Fusce pretium mi
+nibh, pulvinar hendrerit turpis scelerisque nec. Etiam vitae auctor
+erat, eget molestie massa. Morbi magna dolor, tincidunt quis iaculis et,
+suscipit nec leo. Aenean et lectus lorem. Nullam suscipit eros et mi
+eleifend, id eleifend enim ullamcorper. Aenean molestie vulputate urna,
+non aliquet mi pellentesque eget.
+
+
+\vskip 8.5pt \noindent \emph{Keywords}: performance persistence, baseball, sports analytics \par
+
+    \hbox{\vrule height .2pt width 39.14pc}
+
+
+
+\end{abstract}
+
+
+\vskip 6.5pt
+
+\noindent \onehalfspacing \section{Introduction}\label{introduction}
 
 Performance persistence is a well-studied trend in the financial
 literature, particularly involving mutual funds. In general, researchers
 aim to determine if there is a cross-period effect where fund returns
-can be predicted using past-period returns.
+can be predicted using past-period returns. The performance of sports
+teams can be measured analogously to mutual fund returns, especially
+when determining competitive equality.
 
-The performance of sports teams can be measured analogously to mutual
-fund returns.
+Major League Baseball is an often studied sport in the academic
+literature, in particular due to its wealth of data, mostly
+individualistic nature, and large sample sizes.
 
-\subsection{Data and Methodology}\label{data-and-methodology}
+\section{Literature Review}\label{literature-review}
+
+We examine the literature here from two different perspectives: the
+performance persistence literature from finance, and the competitive
+equality literature in sports economics.
+
+\subsection{Performance persistence}\label{performance-persistence}
+
+Performance persistence has long been studied in the context of actively
+managed funds, which attempt to select equities and other assets,
+usually following some investment strategy, in order to maximize returns
+to investors. In large part, the empirical findings have been mixed.
+
+Performance is typically considered as a fund's ability to generate
+`alpha', or more precisely, creating additional returns in excess of the
+risk free rate, given the fund's market exposure. If we assume that the
+Capital Asset Pricing Model (CAPM) holds, then alpha is simply given by
+the slope of the following regression equation:
+
+\[R_{p, t} - R_{f} = \alpha + \beta(R_{m,t} - R_f) + \epsilon_{p,t}\]
+Rewritten in terms of alpha, we have:
+
+\[\alpha = R_p - [R_f + \beta(R_{m,t} - Rf)]\]
+
+However, this definition of alpha accounts only for risk attributable to
+the market. Within a particular fund and their strategies, there are
+additional sources of risk. Fama and French (1992) famously found that
+much of the excess returns that practitioners believed was alpha was
+actually attributable to exposure to various `factors,' namely market
+capitalization (size) and `value' behavior (book-to-market ratio).
+
+Carlson (1970) was one of the first papers in this area, and found
+little predictive benefit from using the lagged returns.
+
+Indeed, the importance of mutual funds and other actively managed funds
+is widely accepted to be decreasing (see, e.g. Benjamin (2016)). The
+mixed empirical evidence for performance-persistence is a strong driver
+of this movement, as investors instead choose to invest in cheap
+exposure to the market or particular strategies, rather than opt for an
+expensive actively-managed portfolio.
+
+\subsection{Competitive equality}\label{competitive-equality}
+
+\section{Significance}\label{significance}
+
+Good question
+
+\section{Data}\label{data}
 
 Calculations and writeups for this paper are done in the R language,
-using the RMarkdown package for typesetting and reproducibility in code
-(Xie 2014, Allaire et al. (2015)).
-
-\subsubsection{Data}\label{data}
+using the \texttt{RMarkdown} package for typesetting and reproducibility
+in code (Xie 2014, Allaire et al. (2015)). Full code and writeup will be
+available on the author's
+\href{https://github.com/stillmatic/thesis}{Github}.
 
 Major sports leagues have come to realize the importance of
 comprehensive, open datasets. Major League Baseball in particular has
@@ -148,67 +229,252 @@ we require is number of games won at a per-team level, which is easily
 found from a variety of sources, and should be easily available for all
 major sports leagues.
 
-In particular, we use the
+In particular, we use the Sean Lahman database, and its \texttt{R}
+interface, the package \texttt{Lahman} (Friendly 2016). This database
+provides a comprehensive dataset of baseball statistics, and is easily
+queryable.
 
-\subsubsection{Repeat performance
-methodology}\label{repeat-performance-methodology}
+Because the methodology we define is fairly generic and extensible, we
+also identified other sources of data for use if we extend this analysis
+to other sports. In particular,
+\href{http://www.sports-reference.com/}{Sports Reference} provides a
+number of useful data sources, including
+\href{http://www.pro-football-reference.com/}{Pro Football Reference}
+for the National Football League (NFL) and
+\href{http://www.basketball-reference.com/}{Basketball Reference} for
+the National Basketball Association (NBA).
+
+\section{Methodology}\label{methodology}
 
 There are several measures through which we measure repeat performance.
+We outline:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Contingency tables
+\item
+  Lagged regression
+\end{enumerate}
+
+\subsection{Contingency tables}\label{contingency-tables}
 
 First, following (Brown and Goetzmann 1995) we use a nonparametric
 contingency table-based methodology to measure repeat performance. We
-define teams as ``winners'' or ``losers'' depending on if they win more
-games than the median number of games won per team for a given year.
+define teams as ``winners'' or ``losers'' depending on a given metric.
 Then, we measure the behavior of teams in a 2 year period, that is, they
 are defined as ``winner-winner'' for 2014 if they are winners for 2014
 and also winners in the 2015 season.
 
 Then, we use the cross-product ratio to measure repeat performance.
 
-\[R_{cp} = \frac{WW * LL}{WL*LW} \]
-
-\(H_{0}^1\): Performance in the first period is unrelated to performance
-in the second period. That is, \(R_{cp} = 1\).\\
-\(H_{1}^1\): Performance in the first period is related to performance
-in the second period. That is, \(R_{cp} > 1\).
-
-We can approximate the standard error of the natural log of the odds
-ratio {[}TODO: Christensen 1990 p40{]} as the following:
+\[R_{cp} = \frac{WW * LL}{WL*LW} \] We can approximate the standard
+error of the natural log of the odds ratio {[}TODO: Christensen 1990
+p40{]} as the following:
 
 \[\sigma_{\ln R_{cp}} = \sqrt{WW^{-1} + WL^{-1} + LW^{-1} + LL^{-1}}\]
+
+Then, we have sufficient framework to perform statistical tests of
+significance.
+
+\subsubsection{Hypotheses}\label{hypotheses}
+
+First, we define teams as winners if they win more games than the median
+number of games won per team for a given year.
+
+\begin{framed}
+\begin{hypothesis}
+Performance in the first period is related to performance in the second period. 
+\end{hypothesis}
+
+\noindent $H_{0}^1$: Performance in the first period is unrelated to performance in the second period. That is, $R_{cp} = 1$. \\ 
+$H_{1}^1$: Performance in the first period is related to performance in the second period. That is, $R_{cp} > 1$. 
+\end{framed}
 
 In the above sequence, we consider a team a winner by its performance
 relative to the median winrate, which should be roughly 0.500, i.e.~50\%
 winning rate. For the sake of comprehensiveness, we will also measure
 team performance relative to the 0.500 benchmark.
 
-\(H_{0}^2\): Performance in the first period is unrelated to performance
-in the second period. That is, \(R_{cp} = 1\).\\
-\(H_{1}^2\): Performance in the first period is related to performance
-in the second period. That is, \(R_{cp} > 1\).
+\begin{framed}
+\begin{hypothesis}
+Performance in the first period is related to performance in the second period.
+\end{hypothesis}
 
-We also consider a performance measure where teams are winners if they
-make the playoffs.
+\noindent $H_{0}^2$: Performance in the first period is unrelated to performance in the second period. That is, $R_{cp} = 1$.  \\
+$H_{1}^2$: Performance in the first period is related to performance in the second period. That is, $R_{cp} > 1$. 
+\end{framed}
 
-\(H_{0}^3\): Making the playoffs in the first period is unrelated to
-making the playoffs in the second period. That is, \(R_{cp} = 1\).\\
-\(H_{1}^3\): Making the playoffs in the first period is related to
-making the playoffs in the second period. That is, \(R_{cp} > 1\).
+We also consider a performance measure where teams are considered
+winners if they make the playoffs.
+
+\begin{framed}
+\begin{hypothesis}
+Making the playoffs in the first period is related to making the playoffs in the second period.
+\end{hypothesis}
+
+\noindent $H_{0}^3$: Making the playoffs in the first period is unrelated to making the playoffs in the second period. That is, $R_{cp} = 1$.  \\
+$H_{1}^3$: Making the playoffs in the first period is related to making the playoffs in the second period. That is, $R_{cp} > 1$. 
+\end{framed}
 
 Finally, to account for the peculiarities of American League vs National
 League, the wild-card process, or general nonsense, we will also measure
 winning rates relative to the ``worst'' team which does make the
 playoffs, where worst is defined as fewest wins.
 
-\(H_{0}^4\): Winning enough games to make the playoffs in the first
-period is unrelated to winning enough games to make the playoffs in the
-second period. That is, \(R_{cp} = 1\).\\
-\(H_{1}^4\): Winning enough games to make the playoffs in the first
-period is related to winning enough games to make the playoffs in the
-second period. That is, \(R_{cp} > 1\).
+\begin{framed}
+\begin{hypothesis}
+Winning enough games to make the playoffs in the first period is related to winning enough games to make the playoffs in the second period.
+\end{hypothesis}
 
-\subsection*{Bibliography}\label{bibliography}
-\addcontentsline{toc}{subsection}{Bibliography}
+\noindent $H_{0}^4$: Winning enough games to make the playoffs in the first period is unrelated to winning enough games to make the playoffs in the second period. That is, $R_{cp} = 1$.  \\
+$H_{1}^4$: Winning enough games to make the playoffs in the first period is related to winning enough games to make the playoffs in the second period. That is, $R_{cp} > 1$. 
+\end{framed}
+
+\subsection{Lagged Regressions}\label{lagged-regressions}
+
+A slightly more complex model for measuring effects over time is with a
+lagged regression. That is, in a linear regression, is the winrate of
+the year before a significant indicator for the winrate of the year
+after? This is the approach taken by Carlson (1970).
+
+For any given team \(i\) and season \(s\), we can then set up a
+regression equation:
+
+\[\pi_{i,s} = \beta_0 + \beta \pi_{i, s-1} + \epsilon\] Here,
+\(\pi_{i,s}\) is the winrate from that season. Our goal is to measure
+the significance of the \(\beta\) coefficient, which we can do through
+an Anova test.
+
+The most important benefit of using a regression model is that we can
+control for exogenous effects, by adding them as additional factors into
+the regression equation. Our results from a contigency table based
+method may be better explained by other factors. Some factors which we
+intend to control for include the following:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Player turnover}: We would expect a team with exactly the same
+  players between two seasons to perform approximately the same.
+  However, if teams have massive player turnover, then changes in
+  performance may be due to the turnover rather than performance
+  persistence. We can measure turnover by examining the number of
+  players on the Opening Day roster that are not on the team's ending
+  roster. We can also measure this change relative to other teams'
+  turnover, and use a standardized z-score.
+\item
+  \textbf{Strength of schedule}: It is possible that some deviance in
+  wins can be explained by how strong opponents were. This is typically
+  measured by the aggregate number of games won by opponents. In the
+  context of MLB teams, this is not likely to make a big difference,
+  since over 162 games and many different opponents, it is unlikely to
+  face large year-to-year changes in strength of schedule.
+\item
+  \textbf{Additional lagged years}: Our initial model is defined with 1
+  year of lagged performance. We can also include more years for a more
+  robust look at performance persistence.
+\end{itemize}
+
+Each of the above models described has been in the form of a linear
+regression, that is, we have some continuous variable \(\pi\) which we
+intend to solve for. We can also study this in the context of logistic
+regression, which has a binary variable \(y\) to solve for; in this
+case, we would use the previously described winner/loser classifications
+for teams and then find the effect of past performance.
+
+\subsubsection{Hypotheses}\label{hypotheses-1}
+
+We begin with a simple base case.
+
+\begin{framed}
+\begin{hypothesis}
+Given a regression of form $\pi_{i,s} = \beta_0 + \beta \pi_{i, s-1} + \epsilon$, one year's lagged performance is a significant regression variable.
+\end{hypothesis}
+
+\noindent $H_0^5$: Last season's performance is not a significant factor at the $p < 0.05$ level. \\
+$H_1^5$: Last season's performance is a significant factor at the $p < 0.05$ level.
+\end{framed}
+
+We can also add more explanatory variables into the regression equation,
+to control for endogenous effects. We outline a number of such variables
+above. Let us call each such variable \(x_{i, j, s}\), where \(i\) is
+the team, \(j\) is the effect number, and \(s\) is the season under
+consideration.
+
+\begin{framed}
+\begin{hypothesis}
+Given a regression of form $\pi_{i,s} = \beta_0 + \beta_{PP} \pi_{i, s-1} + \sum_{j}\beta_j x_{i, j, s} + \epsilon$, one year's lagged performance is a significant regression variable.
+\end{hypothesis}
+
+\noindent $H_0$: Last season's performance is not a significant factor at the $p < 0.05$ level. \\
+$H_1$: Last season's performance is a significant factor at the $p < 0.05$ level.
+\end{framed}
+
+\subsection{Other adjustment factors}\label{other-adjustment-factors}
+
+A fact of sport, and life, is that games are never fair. Bill James's
+Pythagorean expectation for number of games won by a team, and its
+variants, rely on the assumption that the number of games a team wins is
+based on its quality, and the assumption that quality is proportional to
+the ratio of runs scored over runs allowed. Better teams score far more
+runs than they allow, so they win more games, and so on. In practice, we
+use this measure to adjust for the effect of luck in win-loss records.
+An unlucky team would lose in close games and win in blowouts.
+Conversely, a lucky team would win more close games. Thus, there could
+be value to using the Pythagorean expected wins rather than realized
+wins as the dependent variable in a regression.
+
+It is typically given by:
+\[\hat\pi_{i, s} = \frac{\text{runs scored}^2}{\text{runs scored}^2 + \text{runs allowed} ^2}\]
+
+Note that the above formula is easily generalizable to other competitive
+sports.
+
+To use the Pythagorean expectation, we will create a ``counterfactual
+universe'', where each team's wins are given by their expected wins, and
+our hypotheses are tested against this set of data.
+
+\section{Data Analysis}\label{data-analysis}
+
+Todo in full paper!
+
+\section{Extensions}\label{extensions}
+
+A core consideration in designing this analysis is how applicable these
+methods are to other sports. While each sport obviously requires
+different understandings, such as season length, each of these methods
+can be applied without many changes. I think it will be within scope of
+this paper to further incorporate data from other professional leagues
+and compare the results.
+
+\begin{longtable}[]{@{}lrrr@{}}
+\toprule
+League & Games Played & Number of Teams & Playoff Teams\tabularnewline
+\midrule
+\endhead
+MLB & 162 & 30 & 10\tabularnewline
+NFL & 16 & 32 & 12\tabularnewline
+NBA & 82 & 30 & 16\tabularnewline
+\bottomrule
+\end{longtable}
+
+It would be interesting to measure performance persistence at the
+general manager or otherwise team management level. Brown and Goetzmann
+(1995) finds support for performance persistence in mutual funds at the
+fund manager level, which indicates the efficacy of common strategies
+that managers carry along. With the increased coverage in baseball about
+the importance of management who {[}Theo Epstein\ldots{}{]}
+
+\section{Conclusion}\label{conclusion}
+
+Todo in full paper!
+
+\newpage
+
+\section*{Bibliography}\label{bibliography}
+\addcontentsline{toc}{section}{Bibliography}
 
 \hypertarget{refs}{}
 \hypertarget{ref-allaire2015}{}
@@ -216,16 +482,36 @@ Allaire, J, J Cheng, Yihui Xie, J McPherson, W Chang, Jeff Allen, H
 Wickham, and R Hyndman. 2015. ``rmarkdown: Dynamic Documents for R.''
 \emph{R Package Version 0.5}.
 
+\hypertarget{ref-Benjamin2016}{}
+Benjamin, Jeff. 2016. ``What's driving the decade of outflows from
+actively managed mutual funds.''
+\url{http://www.investmentnews.com/article/20160508/FREE/305089998/whats-driving-the-decade-of-outflows-from-actively-managed-mutual}.
+
 \hypertarget{ref-Brown1995}{}
 Brown, S, and William N. Goetzmann. 1995. ``Performance Persistence.''
 \emph{The Journal of Finance} 50 (2): 679.
 doi:\href{https://doi.org/10.2307/2329424}{10.2307/2329424}.
+
+\hypertarget{ref-Carlson1970}{}
+Carlson, Robert S. 1970. ``Aggregate Performance of Mutual Funds,
+1948-1967.'' \emph{The Journal of Financial and Quantitative Analysis} 5
+(1): 1--32. doi:\href{https://doi.org/10.2307/2979005}{10.2307/2979005}.
+
+\hypertarget{ref-FamaFrench1992}{}
+Fama, Eugene F., and Kenneth R. French. 1992. ``The cross-section of
+expected stock returns.'' \emph{JoF} XLVII (2): 427--66.
+doi:\href{https://doi.org/10.2307/2329112}{10.2307/2329112}.
+
+\hypertarget{ref-Friendly2016}{}
+Friendly, Michael. 2016. ``Sean 'Lahman' Baseball Database.''
+Comprehensive R Archive Network (CRAN).
+\url{https://cran.r-project.org/web/packages/Lahman/index.html}.
 
 \hypertarget{ref-Xie2014}{}
 Xie, Yihui. 2014. ``knitr: A Comprehensive Tool for Reproducible
 Research in R.'' In \emph{Implementing Reproducible Research}, edited by
 Victoria Stodden, Friedrich Leisch, and Roger D. Peng, 3--32. CRC Press.
 
-                                                                                                                                                                                                      \newpage
-                                                                                                                                                                                                      \singlespacing 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        \end{document}
+\newpage
+\singlespacing 
+\end{document}
