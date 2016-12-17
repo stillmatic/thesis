@@ -4,21 +4,21 @@ author:
 - name: Chris Hua
   affiliation: "Wharton School, University of Pennsylvania"
 - name: Linda Zhao 
-  affiliation: "Wharton School, University of Pennsylvania"
-date: "December 15, 2016"
+  affiliation: "Professor of Statistics, Wharton School, University of Pennsylvania"
+date: "17 December 2016"
 output:
   pdf_document: 
     keep_tex: yes
     latex_engine: xelatex
     template: ~/code/thesis/writeup/templates/latex-ms.tex
-subtitle: "Wharton Honors Thesis"
+subtitle: "Thesis Proposal for Wharton Research Scholars"
 fontfamily: mathpazo
 bibliography: thesis.bib
 geometry: margin=1in
 # toc: true
 spacing: onehalf
 thanks: "Contact: chua@wharton.upenn.edu"
-abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rhoncus est metus, porttitor scelerisque nisi tincidunt at. Fusce pretium mi nibh, pulvinar hendrerit turpis scelerisque nec. Etiam vitae auctor erat, eget molestie massa. Morbi magna dolor, tincidunt quis iaculis et, suscipit nec leo. Aenean et lectus lorem. Nullam suscipit eros et mi eleifend, id eleifend enim ullamcorper. Aenean molestie vulputate urna, non aliquet mi pellentesque eget."
+# abstract: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rhoncus est metus, porttitor scelerisque nisi tincidunt at. Fusce pretium mi nibh, pulvinar hendrerit turpis scelerisque nec. Etiam vitae auctor erat, eget molestie massa. Morbi magna dolor, tincidunt quis iaculis et, suscipit nec leo. Aenean et lectus lorem. Nullam suscipit eros et mi eleifend, id eleifend enim ullamcorper. Aenean molestie vulputate urna, non aliquet mi pellentesque eget."
 keywords: "performance persistence, baseball, sports analytics"
 fontsize: 11pt
 header-includes:
@@ -29,12 +29,13 @@ header-includes:
 library(dplyr)
 knitr::opts_chunk$set(echo = FALSE)
 ```
+\newpage
 
 # Introduction
 
 Performance persistence is a well-studied trend in the financial literature, particularly involving mutual funds. In general, researchers aim to determine if there is a cross-period effect where fund returns can be predicted using past-period returns. The performance of sports teams can be measured analogously to mutual fund returns, especially when determining competitive equality.
 
-Major League Baseball is an often studied sport in the academic literature, in particular due to its wealth of data, mostly individualistic nature, and large sample sizes. 
+Major League Baseball (MLB) is an often studied sport in the academic literature, in particular due to its wealth of data, mostly individualistic nature, and large sample sizes. The parallels between baseball and finance are interesting and reasonably well documented. one particularly interesting phenonemon happening in parallel is the quickly increasing importance of quantitative analysis in both fields. The increasing focus on data analytics leads to increasingly competitive markets, where teams and hedge funds alike have access to more and better data and historical inefficiencies become harder to exploit.
 
 # Literature Review
 
@@ -57,13 +58,15 @@ However, this definition of alpha accounts only for risk attributable to the mar
 
 Indeed, the importance of mutual funds and other actively managed funds is widely accepted to be decreasing (see, e.g. @Benjamin2016). The mixed empirical evidence for performance-persistence is a strong driver of this movement, as investors instead choose to invest in cheap exposure to the market or particular strategies, rather than opt for an expensive actively-managed portfolio. 
 
-## Competitive equality
+## Competitive equity
 
+Within the sports analytics literature, this topic has typically been investigated as a function of competitiveness. Previous studies have examined measures of inequity within salaries and win performance [@Zepfel2015], such as the Gini coefficient or the Lorenz curve. Others have examined inequity in terms of number of playoff appearances, over a given period of time [@Cox2005].
 
+Reasons posited for competitive inequity typically involve MLB's weak salary cap, which imposes less stringent penalties than other sports, such as the NBA or NFL. This means that teams with deep pockets can pay for more players. Additionally, while there are some revenue sharing mechanisms, the amount that teams can spend is heavily dependent on the team, whereas a more equal compensation structure would involve more revenue sharing and less disparity between team spending [@Davis2015]. The most blatant examples of disparity are the New York Yankees and the Los Angeles Dodgers - the two largest television markets, which receive the most revenue as a result.
 
-# Significance
+Relatively little work has been done on performance persistence in particular. @James2004 argues for the existence of persistence within player ability. 
 
-Good question
+# Research question
 
 # Data
 
@@ -119,7 +122,7 @@ Performance in the first period is related to performance in the second period.
 $H_{1}^2$: Performance in the first period is related to performance in the second period. That is, $R_{cp} > 1$. 
 \end{framed}
 
-We also consider a performance measure where teams are considered winners if they make the playoffs.
+We also consider a performance measure where teams are considered winners if they make the playoffs. This is a measure used by @Cox2005 as well.
 
 \begin{framed}
 \begin{hypothesis}
@@ -210,13 +213,11 @@ data_frame(
 ) %>% knitr::kable()
 ```
 
-
-It would be interesting to measure performance persistence at the general manager or otherwise team management level. @Brown1995 finds support for performance persistence in mutual funds at the fund manager level, which indicates the efficacy of common strategies that managers carry along. With the increased coverage in baseball about the importance of management who [Theo Epstein...]
+It would be interesting to measure performance persistence at the general manager or otherwise team management level. @Brown1995 finds support for performance persistence in mutual funds at the fund manager level, which indicates the efficacy of common strategies that managers carry along. With the increased coverage in baseball about the importance of management who use quantitative strategies to pick players, it is more and more worthwhile to test the individual effect on team success. A particular example
 
 # Conclusion
 
 Todo in full paper!
-
 
 \newpage
 

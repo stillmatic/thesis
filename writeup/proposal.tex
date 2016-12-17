@@ -1,4 +1,4 @@
-\documentclass[11pt,]{article}
+\documentclass[11pt,]{scrartcl}
 \usepackage[left=1in,top=1in,right=1in,bottom=1in]{geometry}
 \newcommand*{\authorfont}{\fontfamily{pbk}\selectfont}
 \usepackage[]{mathpazo}
@@ -42,15 +42,13 @@
 \usepackage{longtable,booktabs}
 
 
-\title{Performance Persistence in Major League Baseball: Wharton Honors Thesis \thanks{Contact:
+\title{Performance Persistence in Major League Baseball\\ Thesis Proposal for Wharton Research Scholars  \thanks{Contact:
 \href{mailto:chua@wharton.upenn.edu}{\nolinkurl{chua@wharton.upenn.edu}}}  }
 
 
+\date{17 December 2016}
 
-\author{\Large Chris Hua\vspace{0.05in} \newline\normalsize\emph{Wharton School, University of Pennsylvania}   \and \Large Linda Zhao\vspace{0.05in} \newline\normalsize\emph{Wharton School, University of Pennsylvania}  }
-
-
-\date{}
+\author{\Large Chris Hua\vspace{0.05in} \newline\normalsize\emph{Wharton School, University of Pennsylvania}   \and \Large Linda Zhao\vspace{0.05in} \newline\normalsize\emph{Professor of Statistics, Wharton School, University of Pennsylvania}  }
 
 \usepackage{titlesec}
 
@@ -59,7 +57,6 @@
 \titleformat*{\subsubsection}{\normalsize\itshape}
 \titleformat*{\paragraph}{\normalsize\itshape}
 \titleformat*{\subparagraph}{\normalsize\itshape}
-
 
 
 
@@ -84,9 +81,9 @@
 \makeatother
 \hypersetup{breaklinks=true,
             bookmarks=true,
-            pdfauthor={Chris Hua (Wharton School, University of Pennsylvania) and Linda Zhao (Wharton School, University of Pennsylvania)},
+            pdfauthor={Chris Hua (Wharton School, University of Pennsylvania) and Linda Zhao (Professor of Statistics, Wharton School, University of Pennsylvania)},
              pdfkeywords = {performance persistence, baseball, sports analytics},  
-            pdftitle={Performance Persistence in Major League Baseball: Wharton Honors Thesis},
+            pdftitle={Performance Persistence in Major League Baseball: Thesis Proposal for Wharton Research Scholars},
             colorlinks=true,
             citecolor=blue,
             urlcolor=blue,
@@ -102,58 +99,30 @@
 \begin{document}
   
 % \pagenumbering{arabic}% resets `page` counter to 1 
-%
-% \maketitle
+%% \maketitle
 
 {% \usefont{T1}{pnc}{m}{n}
+
 \setlength{\parindent}{0pt}
-\thispagestyle{plain}
-{\fontsize{18}{20}\selectfont\raggedright 
-\maketitle  % title \par  
-
-}
-
+\thispagestyle{empty}
 {
-   \vskip 13.5pt\relax \normalsize\fontsize{11}{12} 
- \textbf{\authorfont Chris Hua} \hfill \emph{\small Wharton School, University of Pennsylvania}   \par  \textbf{\authorfont Linda Zhao} \hfill \emph{\small Wharton School, University of Pennsylvania}   
-
+\fontsize{18}{20}\selectfont\raggedright 
+\maketitle  % title \par  
+}
+{
+\vskip 13.5pt\relax \normalsize\fontsize{11}{12} 
+ \textbf{\authorfont Chris Hua} \hfill \emph{\small Wharton School, University of Pennsylvania}   \par  \textbf{\authorfont Linda Zhao} \hfill \emph{\small Professor of Statistics, Wharton School, University of Pennsylvania}   
 }
 
 }
 
-
-
-
-
-
-
-\begin{abstract}
-
-    \hbox{\vrule height .2pt width 39.14pc}
-
-    \vskip 8.5pt % \small 
-
-\noindent Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi rhoncus
-est metus, porttitor scelerisque nisi tincidunt at. Fusce pretium mi
-nibh, pulvinar hendrerit turpis scelerisque nec. Etiam vitae auctor
-erat, eget molestie massa. Morbi magna dolor, tincidunt quis iaculis et,
-suscipit nec leo. Aenean et lectus lorem. Nullam suscipit eros et mi
-eleifend, id eleifend enim ullamcorper. Aenean molestie vulputate urna,
-non aliquet mi pellentesque eget.
-
-
-\vskip 8.5pt \noindent \emph{Keywords}: performance persistence, baseball, sports analytics \par
-
-    \hbox{\vrule height .2pt width 39.14pc}
-
-
-
-\end{abstract}
 
 
 \vskip 6.5pt
 
-\noindent \onehalfspacing \section{Introduction}\label{introduction}
+\noindent \onehalfspacing \newpage
+
+\section{Introduction}\label{introduction}
 
 Performance persistence is a well-studied trend in the financial
 literature, particularly involving mutual funds. In general, researchers
@@ -162,9 +131,15 @@ can be predicted using past-period returns. The performance of sports
 teams can be measured analogously to mutual fund returns, especially
 when determining competitive equality.
 
-Major League Baseball is an often studied sport in the academic
+Major League Baseball (MLB) is an often studied sport in the academic
 literature, in particular due to its wealth of data, mostly
-individualistic nature, and large sample sizes.
+individualistic nature, and large sample sizes. The parallels between
+baseball and finance are interesting and reasonably well documented. one
+particularly interesting phenonemon happening in parallel is the quickly
+increasing importance of quantitative analysis in both fields. The
+increasing focus on data analytics leads to increasingly competitive
+markets, where teams and hedge funds alike have access to more and
+better data and historical inefficiencies become harder to exploit.
 
 \section{Literature Review}\label{literature-review}
 
@@ -207,11 +182,31 @@ of this movement, as investors instead choose to invest in cheap
 exposure to the market or particular strategies, rather than opt for an
 expensive actively-managed portfolio.
 
-\subsection{Competitive equality}\label{competitive-equality}
+\subsection{Competitive equity}\label{competitive-equity}
 
-\section{Significance}\label{significance}
+Within the sports analytics literature, this topic has typically been
+investigated as a function of competitiveness. Previous studies have
+examined measures of inequity within salaries and win performance
+(Zepfel 2015), such as the Gini coefficient or the Lorenz curve. Others
+have examined inequity in terms of number of playoff appearances, over a
+given period of time (Cox and Skidmore-Haas 2005).
 
-Good question
+Reasons posited for competitive inequity typically involve MLB's weak
+salary cap, which imposes less stringent penalties than other sports,
+such as the NBA or NFL. This means that teams with deep pockets can pay
+for more players. Additionally, while there are some revenue sharing
+mechanisms, the amount that teams can spend is heavily dependent on the
+team, whereas a more equal compensation structure would involve more
+revenue sharing and less disparity between team spending (Davis and
+Lopez 2015). The most blatant examples of disparity are the New York
+Yankees and the Los Angeles Dodgers - the two largest television
+markets, which receive the most revenue as a result.
+
+Relatively little work has been done on performance persistence in
+particular. James (2004) argues for the existence of persistence within
+player ability.
+
+\section{Research question}\label{research-question}
 
 \section{Data}\label{data}
 
@@ -307,7 +302,8 @@ $H_{1}^2$: Performance in the first period is related to performance in the seco
 \end{framed}
 
 We also consider a performance measure where teams are considered
-winners if they make the playoffs.
+winners if they make the playoffs. This is a measure used by Cox and
+Skidmore-Haas (2005) as well.
 
 \begin{framed}
 \begin{hypothesis}
@@ -465,7 +461,9 @@ general manager or otherwise team management level. Brown and Goetzmann
 (1995) finds support for performance persistence in mutual funds at the
 fund manager level, which indicates the efficacy of common strategies
 that managers carry along. With the increased coverage in baseball about
-the importance of management who {[}Theo Epstein\ldots{}{]}
+the importance of management who use quantitative strategies to pick
+players, it is more and more worthwhile to test the individual effect on
+team success. A particular example
 
 \section{Conclusion}\label{conclusion}
 
@@ -497,6 +495,16 @@ Carlson, Robert S. 1970. ``Aggregate Performance of Mutual Funds,
 1948-1967.'' \emph{The Journal of Financial and Quantitative Analysis} 5
 (1): 1--32. doi:\href{https://doi.org/10.2307/2979005}{10.2307/2979005}.
 
+\hypertarget{ref-Cox2005}{}
+Cox, Ronald, and Daniel Skidmore-Haas. 2005. ``Team Competitiveness in
+Major League Baseball.'' In \emph{Free Agency and Competitive Balance in
+Baseball}. McFarland \& Company.
+
+\hypertarget{ref-Davis2015}{}
+Davis, Noah, and Michael Lopez. 2015. ``Don't Be Fooled By Baseball's
+Small-Budget Success Stories.''
+\url{http://fivethirtyeight.com/features/dont-be-fooled-by-baseballs-small-budget-success-stories/}.
+
 \hypertarget{ref-FamaFrench1992}{}
 Fama, Eugene F., and Kenneth R. French. 1992. ``The cross-section of
 expected stock returns.'' \emph{JoF} XLVII (2): 427--66.
@@ -507,10 +515,19 @@ Friendly, Michael. 2016. ``Sean 'Lahman' Baseball Database.''
 Comprehensive R Archive Network (CRAN).
 \url{https://cran.r-project.org/web/packages/Lahman/index.html}.
 
+\hypertarget{ref-James2004}{}
+James, Bill. 2004. ``Underestimating the Fog.'' \emph{Baseball Research
+Journal} 33: 29--33. \url{http://sabr.org/research/underestimating-fog}.
+
 \hypertarget{ref-Xie2014}{}
 Xie, Yihui. 2014. ``knitr: A Comprehensive Tool for Reproducible
 Research in R.'' In \emph{Implementing Reproducible Research}, edited by
 Victoria Stodden, Friedrich Leisch, and Roger D. Peng, 3--32. CRC Press.
+
+\hypertarget{ref-Zepfel2015}{}
+Zepfel, Evan. 2015. ``Have MLB's Efforts to Preserve Competitive Balance
+Done Enough?''
+\url{http://harvardsportsanalysis.org/2015/02/have-mlbs-efforts-to-preserve-competitive-balance-done-enough/}.
 
 \newpage
 \singlespacing 
